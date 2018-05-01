@@ -61,11 +61,12 @@ def PushTo_Gateway(sleepy):
 
 
 
-nvmlInit()
-print('Nvidia Driver version: {:s}'.format(nvmlSystemGetDriverVersion()))
-print('[+] {:d} devices found.'.format(nvmlDeviceGetCount()))
 
 if __name__ == "__main__":
+    nvmlInit()
+    print('Nvidia Driver version: {:s}'.format(nvmlSystemGetDriverVersion()))
+    print('[+] {:d} devices found.'.format(nvmlDeviceGetCount()))
+
     try:
        while True:
             for Device in range(nvmlDeviceGetCount()):
@@ -79,4 +80,3 @@ if __name__ == "__main__":
         nvmlShutdown()
         print ("Got Ctrl+C, Shutting Down NVML")
         print (err)
-
